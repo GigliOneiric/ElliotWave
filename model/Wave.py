@@ -1,39 +1,55 @@
 class Wave(object):
 
-    def __init__(self, start_index, end_index, start_point, end_point):
-        self.start_index = start_index
-        self.end_index = end_index
-        self.start_point = start_point
-        self.end_point = end_point
+    def __init__(self, wave_start_index, wave_end_index, wave_start_point, wave_end_point):
+        self._wave_start_index = wave_start_index
+        self._wave_end_index = wave_end_index
+        self._wave_start_point = wave_start_point
+        self._wave_end_point = wave_end_point
 
-        self.count = int
+        self.wave_counter = int
 
     @property
     def wave_start_index(self):
-        return self.start_index
+        return self._wave_start_index
+
+    @wave_start_index.setter
+    def wave_start_index(self, wave_start_index):
+        self._wave_start_index = wave_start_index
 
     @property
     def wave_end_index(self):
-        return self.end_index
+        return self._wave_end_index
+
+    @wave_end_index.setter
+    def wave_end_index(self, wave_end_index):
+        self._wave_end_index = wave_end_index
 
     @property
     def wave_start_point(self):
-        return self.start_point
+        return self._wave_start_point
+
+    @wave_start_point.setter
+    def wave_start_point(self, wave_start_point):
+        self._wave_start_point = wave_start_point
 
     @property
     def wave_end_point(self):
-        return self.end_point
+        return self._wave_end_point
+
+    @wave_end_point.setter
+    def wave_end_point(self, wave_end_point):
+        self._wave_end_point = wave_end_point
+
+    @property
+    def wave_counter(self):
+        return self._wave_counter
+
+    @wave_counter.setter
+    def wave_counter(self, wave_counter):
+        self._wave_counter = wave_counter
 
     @property
     def wave_length(self):
-        return abs(self.start_point - self.end_point)
-
-    @property
-    def wave_count(self):
-        return self.count
-
-    @wave_count.setter
-    def wave_count(self, value):
-        self.count = value
+        return abs(self.wave_start_point - self.wave_end_point)
 
 

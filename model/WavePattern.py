@@ -12,7 +12,7 @@ class WavePattern(object):
 
     @property
     def wave_list(self):
-        return self.wave_list
+        return self._wave_list
 
     @wave_list.setter
     def wave_list(self, wave_list):
