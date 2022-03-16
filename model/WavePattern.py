@@ -1,6 +1,3 @@
-import wave
-from typing import List, Any
-
 from model.Wave import Wave
 
 
@@ -22,7 +19,7 @@ class WavePattern(object):
         self._wave_list.append(_wave)
 
     def add_waves(self, minima_maxima):
-        self.wave = Wave(minima_maxima['date'][1], minima_maxima['date'][2], minima_maxima['extrema'][1],
-                         minima_maxima['extrema'][2])
+        wave = Wave(minima_maxima['date'][1], minima_maxima['date'][2], minima_maxima['extrema'][1],
+                    minima_maxima['extrema'][2])
 
-        self.add_wave(self.wave)
+        self.add_wave(wave)
