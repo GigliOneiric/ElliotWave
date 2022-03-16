@@ -21,6 +21,7 @@ def minmax(df, window):
     extrema = pd.concat([minima, maxima], ignore_index=True, sort=True, axis=0)
 
     extrema = extrema.sort_values(by=['date'])
+    extrema.reset_index(drop=True)
 
     # Get the highest maxima/ the lowest minima
 
@@ -46,5 +47,6 @@ def minmax(df, window):
     extrema.loc[extrema['maxima2'].notnull(), 'maxima2'] = 'maxima'
     extrema.maxima2.fillna("minima", inplace=True)
     extrema.rename(columns={'minima2': 'extrema', 'maxima2': 'type'}, inplace=True)
+    extrema = extrema.reset_index(drop=True)
 
     return extrema

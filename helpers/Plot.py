@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
+from model import Wave
+
 
 def plot_linechart(df):
     plt.plot(df.index, df['close'])
-    plt.show()
-
 
 def plot_extrema(extrema):
     minima_maxima = pd.DataFrame({'date': extrema.date})
@@ -15,3 +15,15 @@ def plot_extrema(extrema):
 
     plt.scatter(minima_maxima.date, minima_maxima.minima, c='y')
     plt.scatter(minima_maxima.date, minima_maxima.maxima, c='r')
+
+
+def plot_wave(df: Wave):
+    wave_start = pd.DataFrame({'date': df.start_index, 'point': df.start_point}, index=[0])
+    wave_end = pd.DataFrame({'date': df.end_index, 'point': df.end_point}, index=[0])
+    wave = pd.concat([wave_start, wave_end], ignore_index=True, axis=0)
+
+    plt.plot(wave.date, wave.point, c='r')
+    plt.annotate(df.wave_count, (wave_end.date, wave_end.point))
+
+def plot_show():
+    plt.show()
