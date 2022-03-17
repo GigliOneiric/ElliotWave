@@ -1,4 +1,5 @@
 import numpy as np
+import pymannkendall as mk
 from scipy.stats import linregress
 
 
@@ -14,3 +15,9 @@ def trend_linear_regression(extrema):
     slope = float(result[0])
 
     return slope
+
+
+def mannkendall(extrema):
+    result = mk.original_test(extrema.extrema)
+
+    return result.trend
