@@ -17,7 +17,7 @@ def trend_linear_regression(extrema):
     return slope
 
 
-def mannkendall(extrema):
+def trend_mannkendall(extrema):
     result = mk.original_test(extrema.extrema)
 
     return result.trend
