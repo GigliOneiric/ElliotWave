@@ -19,7 +19,12 @@ class WavePattern(object):
         self._wave_list.append(wave)
 
     def add_waves(self, minima_maxima):
-        wave = Wave(minima_maxima['date'][1], minima_maxima['date'][2], minima_maxima['extrema'][1],
-                    minima_maxima['extrema'][2])
+        minima_maxima_counter = len(minima_maxima.index)
 
-        self.add_wave(wave)
+        for i in range(1, minima_maxima_counter-1):
+            wave = Wave(minima_maxima['date'][i], minima_maxima['date'][i+1], minima_maxima['extrema'][i],
+                        minima_maxima['extrema'][i+1])
+
+            wave.wave_counter = 1
+
+            self.add_wave(wave)

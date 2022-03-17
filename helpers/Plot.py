@@ -27,5 +27,10 @@ def plot_wave(df: Wave):
     plt.annotate(df.wave_counter, (wave_end.date, wave_end.point))
 
 
+def plot_waves(wave_list):
+        wave = wave_list[0]
+        plot_wave(wave)
+
+
 def plot_show():
     plt.show()
