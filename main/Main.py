@@ -10,9 +10,6 @@ df = read_csv()
 # Calculate Minima/Maxima
 minima_maxima = minmax(df, 1)
 
-# Detect upwards trend/downwards trend
-print(trend_polynomial_regression(minima_maxima, 1))
-
 # Build
 waves = WavePattern()
 waves.add_waves(minima_maxima)
