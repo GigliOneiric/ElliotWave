@@ -1,12 +1,12 @@
 class Wave(object):
 
     def __init__(self, wave_start_index, wave_end_index, wave_start_point, wave_end_point):
-        self.wave_start_index = wave_start_index
-        self.wave_end_index = wave_end_index
-        self.wave_start_point = wave_start_point
-        self.wave_end_point = wave_end_point
+        self._wave_start_index = wave_start_index
+        self._wave_end_index = wave_end_index
+        self._wave_start_point = wave_start_point
+        self._wave_end_point = wave_end_point
 
-        self.wave_counter = int
+        self._wave_counter = int
 
     @property
     def wave_start_index(self):

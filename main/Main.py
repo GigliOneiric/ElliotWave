@@ -10,12 +10,12 @@ df = read_csv()
 minima_maxima = minmax(df, 1)
 
 # Build
-x = WavePattern()
-x.add_waves(minima_maxima)
+waves = WavePattern()
+waves.add_waves(minima_maxima)
 
 
 # Plot results
 plot_linechart(df)
 plot_extrema(minima_maxima)
-plot_waves(x.wave_list)
+plot_waves(waves.wave_list)
 plot_show()

@@ -28,7 +28,10 @@ def plot_wave(df: Wave):
 
 
 def plot_waves(wave_list):
-        wave = wave_list[0]
+    number_of_elements = len(wave_list)
+
+    for i in range(number_of_elements):
+        wave = wave_list[i]
         plot_wave(wave)
 
 

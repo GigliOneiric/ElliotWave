@@ -4,8 +4,8 @@ from model.Wave import Wave
 class WavePattern(object):
 
     def __init__(self):
-        self.wave = None
-        self.wave_list = []
+        self._wave = None
+        self._wave_list = []
 
     @property
     def wave_list(self):
@@ -25,6 +25,6 @@ class WavePattern(object):
             wave = Wave(minima_maxima['date'][i], minima_maxima['date'][i+1], minima_maxima['extrema'][i],
                         minima_maxima['extrema'][i+1])
 
-            wave.wave_counter = 1
+            wave.wave_counter = i
 
             self.add_wave(wave)
