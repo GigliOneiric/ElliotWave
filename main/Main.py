@@ -1,22 +1,23 @@
-from helpers.Peak import minmax
+from helpers.PeakAnalyzer import minmax
 from helpers.FileReader import read_csv
 from helpers.Plot import *
-from helpers.Trend import *
-from model.WavePattern import *
+from model.Conditions import Impulse
+from model.Conditions.Impulse import *
+from model.WaveFinder.WaveFinderBasic import *
 
 # Read CSV
+from model.WaveFinder.WaveFinderImpulse import find_impulsive_wave
+
 df = read_csv()
 
 # Calculate Minima/Maxima
-minima_maxima = minmax(df, 1)
+minima_maxima = minmax(df, 2)
 
 # Build
-waves = WavePattern()
-waves.add_waves(minima_maxima)
-
+waves = find_impulsive_wave(df, 0)
 
 # Plot results
 plot_linechart(df)
 plot_extrema(minima_maxima)
-plot_waves(waves.wave_list)
+plot_waves(waves)
 plot_show()
