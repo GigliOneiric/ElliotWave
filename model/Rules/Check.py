@@ -20,7 +20,8 @@ class Check:
                 if wave_pattern.name == config.Text.impulse and self._rule == config.Text.impulse:
                     key = f'wave{i + 1}'
                     _waves_dict.setdefault(key, wave)
-                elif wave_pattern.name == config.Text.zigzag and self._rule == config.Text.zigzag:
+                elif (wave_pattern.name == config.Text.zigzag and self._rule == config.Text.zigzag) \
+                        or (wave_pattern.name == config.Text.flat and self._rule == config.Text.flat):
                     key = f'wave{chr(i + 65)}'
                     _waves_dict.setdefault(key, wave)
 
@@ -74,4 +75,3 @@ class Check:
             if self._logging is True:
                 print(f'Rule Violation of {key}: {message}')
             self._valid_rules = False
-

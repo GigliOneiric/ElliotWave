@@ -6,7 +6,7 @@ from model.WavePatternFinder.WavePatternFinderCorrection import find_correction_
 from model.WavePatternFinder.WavePatternFinderImpulse import find_impulsive_wave
 
 
-class WavePatternFinder(object):
+class WavePatternFinderBasic(object):
 
     def __init__(self, df, window_size):
         self._wave_list = []

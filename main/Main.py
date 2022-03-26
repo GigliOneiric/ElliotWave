@@ -3,7 +3,7 @@ from helpers.Plot import *
 from model.Rules.Check import *
 from model.Rules.Impulse import *
 from model.Rules.ZigZag import *
-from model.WavePatternFinder.WavePatternFinder import *
+from model.WavePatternFinder.WavePatternFinderBasic import *
 # Read CSV
 
 df = read_csv()
@@ -12,7 +12,7 @@ df = read_csv()
 minima_maxima = minmax(df, 2)
 
 # Build
-wave_pattern = WavePatternFinder(df, window_size=2).find_wave_pattern(idx_start=0)
+wave_pattern = WavePatternFinderBasic(df, window_size=2).find_wave_pattern(idx_start=0)
 
 impulse = Impulse(config.Text.impulse)
 zigzag = ZigZag(config.Text.zigzag)
