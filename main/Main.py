@@ -12,8 +12,7 @@ df = read_csv()
 minima_maxima = minmax(df, 2)
 
 # Build
-wave_pattern = WavePatternFinder(df).find_wave_pattern2(0)
-waves = WavePatternFinder(df).find_wave_pattern(0)
+wave_pattern = WavePatternFinder(df, window_size=2).find_wave_pattern(idx_start=0)
 
 impulse = Impulse(config.Text.impulse)
 zigzag = ZigZag(config.Text.zigzag)
@@ -25,5 +24,5 @@ for rule in rules_to_check:
 # Plot results
 plot_linechart(df)
 plot_extrema(minima_maxima)
-plot_waves(waves)
+plot_pattern(wave_pattern)
 plot_show()

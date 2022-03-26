@@ -12,15 +12,18 @@ def plot_linechart(df):
 def plot_extrema(extrema):
     minima_maxima = pd.DataFrame({config.Text.date: extrema.date})
 
-    minima_maxima[config.Text.minima] = extrema.apply(lambda g: g[config.Text.extrema] if g[config.Text.type] == config.Text.minima else None, axis=1)
-    minima_maxima[config.Text.maxima] = extrema.apply(lambda g: g[config.Text.extrema] if g[config.Text.type] == config.Text.maxima else None, axis=1)
+    minima_maxima[config.Text.minima] = extrema.apply(
+        lambda g: g[config.Text.extrema] if g[config.Text.type] == config.Text.minima else None, axis=1)
+    minima_maxima[config.Text.maxima] = extrema.apply(
+        lambda g: g[config.Text.extrema] if g[config.Text.type] == config.Text.maxima else None, axis=1)
 
     plt.scatter(minima_maxima.date, minima_maxima.minima, c='y')
     plt.scatter(minima_maxima.date, minima_maxima.maxima, c='r')
 
 
 def plot_wave(df: Wave):
-    wave_start = pd.DataFrame({config.Text.date: df.wave_start_index, config.Text.point: df.wave_start_point}, index=[0])
+    wave_start = pd.DataFrame({config.Text.date: df.wave_start_index, config.Text.point: df.wave_start_point},
+                              index=[0])
     wave_end = pd.DataFrame({config.Text.date: df.wave_end_index, config.Text.point: df.wave_end_point}, index=[0])
     wave = pd.concat([wave_start, wave_end], ignore_index=True, axis=0)
 
@@ -34,6 +37,13 @@ def plot_waves(wave_list):
     for i in range(number_of_elements):
         wave = wave_list[i]
         plot_wave(wave)
+
+
+def plot_pattern(wave_pattern):
+    number_of_elements = len(wave_pattern)
+
+    for i in range(number_of_elements):
+        plot_waves(wave_pattern[i].wave_list)
 
 
 def plot_show():
