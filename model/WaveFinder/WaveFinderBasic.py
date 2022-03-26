@@ -1,5 +1,5 @@
 from helpers import TrendAnalyzer
-from model.Wave import Wave
+from model.WaveFinder.Wave import Wave
 
 
 class WaveFinderBasic(object):
@@ -19,16 +19,13 @@ class WaveFinderBasic(object):
     def add_wave(self, wave):
         self._wave_list.append(wave)
 
-    def add_waves(self, minima_maxima):
+    def add_waves(self, minima_maxima, start):
         minima_maxima_counter = len(minima_maxima.index)
-        start = TrendAnalyzer.find_good_start(minima_maxima, 0)
+        start = TrendAnalyzer.find_good_start(minima_maxima, start)
 
         for i in range(start, minima_maxima_counter-1):
             wave = Wave(minima_maxima['date'][i], minima_maxima['date'][i+1], minima_maxima['extrema'][i],
                         minima_maxima['extrema'][i+1])
-
-            wave.wave_counter = start
-            start = start + 1
 
             self.add_wave(wave)
 

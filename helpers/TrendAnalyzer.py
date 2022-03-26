@@ -2,6 +2,8 @@ import numpy as np
 import pymannkendall as mk
 from scipy.stats import linregress
 
+import config.Text
+
 
 def trend_polynomial_regression(extrema, window):
     result = np.polyfit(extrema.index, extrema.extrema, window)
@@ -28,9 +30,9 @@ def find_good_start(minima_maxima, start):
     _start = start
     trend = trend_mannkendall(minima_maxima)
 
-    if trend == 'increasing' and minima_maxima['type'][start] == 'maxima':
+    if trend == config.Text.increasing and minima_maxima[config.Text.type][start] == config.Text.maxima:
         _start = 1
-    elif trend == 'decreasing' and minima_maxima['type'][start] == 'minima':
+    elif trend == config.Text.decreasing and minima_maxima[config.Text.type][start] == config.Text.minima:
         _start = 1
 
     return _start

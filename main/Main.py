@@ -3,8 +3,9 @@ from helpers.PeakAnalyzer import minmax
 from helpers.Plot import *
 from model.Rules.Check import Check
 from model.Rules.Impulse import *
+from model.Rules.ZigZag import ZigZag
+from model.WavePatternFinder.WavePatternFinder import WavePatternFinder
 # Read CSV
-from model.WaveFinder.WaveFinderImpulse import find_impulsive_wave
 
 df = read_csv()
 
@@ -12,13 +13,15 @@ df = read_csv()
 minima_maxima = minmax(df, 2)
 
 # Build
-waves = find_impulsive_wave(df, 0)
+wave_pattern = WavePatternFinder(df).find_wave_pattern2(1)
+waves = WavePatternFinder(df).find_wave_pattern(1)
 
-impulse = Impulse('impulse')
-rules_to_check = [impulse]
+impulse = Impulse(config.Text.impulse)
+zigzag = ZigZag(config.Text.zigzag)
+rules_to_check = [impulse, zigzag]
 
 for rule in rules_to_check:
-    Check(waves, logging=True).check_rule(rule)
+    Check(wave_pattern, rule.name, logging=True).check_rule(rule)
 
 # Plot results
 plot_linechart(df)

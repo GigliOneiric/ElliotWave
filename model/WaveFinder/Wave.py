@@ -6,7 +6,7 @@ class Wave(object):
         self._wave_start_point = wave_start_point
         self._wave_end_point = wave_end_point
 
-        self._wave_counter = int
+        self._wave_counter = str
 
     @property
     def wave_start_index(self):
