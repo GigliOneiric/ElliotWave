@@ -26,8 +26,8 @@ class Impulse:
             'w3': {
                 config.Text.waves: ['wave1', 'wave2', 'wave3', 'wave4'],
                 config.Text.function: lambda wave1, wave2, wave3, wave4: wave3.wave_length > wave1.wave_length
-                                                               and wave3.wave_length > wave2.wave_length
-                                                               and wave3.wave_length > wave4.wave_length,
+                                                                         and wave3.wave_length > wave2.wave_length
+                                                                         and wave3.wave_length > wave4.wave_length,
                 config.Text.message: 'Wave 3 is the shortest'
             },
             'w4_3': {

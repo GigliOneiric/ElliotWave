@@ -1,10 +1,9 @@
 from helpers.FileReader import read_csv
-from helpers.PeakAnalyzer import minmax
 from helpers.Plot import *
-from model.Rules.Check import Check
+from model.Rules.Check import *
 from model.Rules.Impulse import *
-from model.Rules.ZigZag import ZigZag
-from model.WavePatternFinder.WavePatternFinder import WavePatternFinder
+from model.Rules.ZigZag import *
+from model.WavePatternFinder.WavePatternFinder import *
 # Read CSV
 
 df = read_csv()

@@ -1,5 +1,6 @@
 import config.Text
 
+
 class ZigZag:
     def __init__(self, name: str):
         self._name = name

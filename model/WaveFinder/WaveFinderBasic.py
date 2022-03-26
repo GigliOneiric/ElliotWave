@@ -1,3 +1,4 @@
+import config.Text
 from helpers import TrendAnalyzer
 from model.WaveFinder.Wave import Wave
 
@@ -24,8 +25,8 @@ class WaveFinderBasic(object):
         start = TrendAnalyzer.find_good_start(minima_maxima, start)
 
         for i in range(start, minima_maxima_counter-1):
-            wave = Wave(minima_maxima['date'][i], minima_maxima['date'][i+1], minima_maxima['extrema'][i],
-                        minima_maxima['extrema'][i+1])
+            wave = Wave(minima_maxima[config.Text.date][i], minima_maxima[config.Text.date][i+1],
+                        minima_maxima[config.Text.extrema][i], minima_maxima[config.Text.extrema][i+1])
 
             self.add_wave(wave)
 
