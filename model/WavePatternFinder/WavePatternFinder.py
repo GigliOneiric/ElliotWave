@@ -30,7 +30,7 @@ class WavePatternFinder(object):
 
     def find_wave_pattern2(self, idx_start):
         # Calculate Minima/Maxima
-        minima_maxima = minmax(self._df, 2)
+        minima_maxima = minmax(self._df, 1)
 
         # Build
         self._wave_list = WaveFinderBasic()

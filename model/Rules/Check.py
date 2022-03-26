@@ -49,7 +49,7 @@ class Check:
 
         if not function(wave1, wave2):
             if self._logging is True:
-                print(f'Rule Violation of {key} for condition {value}: {message}')
+                print(f'Rule Violation of {key}: {message}')
             self._valid_rules = False
 
     def _check_rule_three_waves(self, key, value, function, message):
@@ -60,7 +60,7 @@ class Check:
 
         if not function(wave1, wave2, wave3):
             if self._logging is True:
-                print(f'Rule Violation of {key} for condition {value}: {message}')
+                print(f'Rule Violation of {key}: {message}')
             self._valid_rules = False
 
     def _check_rule_four_waves(self, key, value, function, message):
@@ -72,6 +72,6 @@ class Check:
 
         if not function(wave1, wave2, wave3, wave4):
             if self._logging is True:
-                print(f'Rule Violation of {key} for condition {value}: {message}')
+                print(f'Rule Violation of {key}: {message}')
             self._valid_rules = False
 

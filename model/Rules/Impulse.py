@@ -14,13 +14,13 @@ class Impulse:
         conditions = {
             'w2_1': {
                 config.Text.waves: ['wave1', 'wave2'],
-                config.Text.function: lambda wave1, wave2: wave1.wave_length < wave2.wave_length,
+                config.Text.function: lambda wave1, wave2: wave1.wave_length > wave2.wave_length,
                 config.Text.message: 'Wave 1 is longer than wave 2'
 
             },
             'w3_2': {
                 config.Text.waves: ['wave2', 'wave3'],
-                config.Text.function: lambda wave2, wave3: wave2.wave_length > wave3.wave_length,
+                config.Text.function: lambda wave2, wave3: wave2.wave_length < wave3.wave_length,
                 config.Text.message: 'Wave 3 is longer than wave 2'
             },
             'w3': {
@@ -32,7 +32,7 @@ class Impulse:
             },
             'w4_3': {
                 config.Text.waves: ['wave3', 'wave4'],
-                config.Text.function: lambda wave3, wave4: wave3.wave_length < wave4.wave_length,
+                config.Text.function: lambda wave3, wave4: wave3.wave_length > wave4.wave_length,
                 config.Text.message: 'Wave 3 is longer than wave 4'
 
             }

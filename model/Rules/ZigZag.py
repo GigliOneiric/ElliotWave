@@ -15,13 +15,13 @@ class ZigZag:
             'wa_b': {
                 config.Text.waves: ['waveA', 'waveB'],
                 config.Text.function: lambda waveA, waveB: waveA.wave_length > waveB.wave_length,
-                config.Text.message: 'Wave A is shorter than wave B'
+                config.Text.message: 'Wave B is shorter than wave A'
 
             },
             'wb_c': {
                 config.Text.waves: ['waveB', 'waveC'],
                 config.Text.function: lambda waveB, waveC: waveB.wave_length < waveC.wave_length,
-                config.Text.message: 'Wave C is shorter than wave B'
+                config.Text.message: 'Wave B is shorter than wave C'
             }
         }
 

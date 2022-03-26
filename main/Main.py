@@ -12,8 +12,8 @@ df = read_csv()
 minima_maxima = minmax(df, 2)
 
 # Build
-wave_pattern = WavePatternFinder(df).find_wave_pattern2(1)
-waves = WavePatternFinder(df).find_wave_pattern(1)
+wave_pattern = WavePatternFinder(df).find_wave_pattern2(0)
+waves = WavePatternFinder(df).find_wave_pattern(0)
 
 impulse = Impulse(config.Text.impulse)
 zigzag = ZigZag(config.Text.zigzag)

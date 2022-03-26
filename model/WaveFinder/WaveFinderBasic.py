@@ -29,5 +29,3 @@ class WaveFinderBasic(object):
                         minima_maxima[config.Text.extrema][i], minima_maxima[config.Text.extrema][i+1])
 
             self.add_wave(wave)
-
-
