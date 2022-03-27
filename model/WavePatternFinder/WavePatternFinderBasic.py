@@ -1,9 +1,8 @@
-import config.Text
+from helpers.IndexTools import last_index
 from helpers.PeakAnalyzer import minmax
 from model.WaveFinder.WaveFinderBasic import WaveFinderBasic
-from model.WavePatternFinder.WavePattern import WavePattern
-from model.WavePatternFinder.WavePatternFinderCorrection import find_correction_wave
-from model.WavePatternFinder.WavePatternFinderImpulse import find_impulsive_wave
+from model.WavePatternFinder.WavePatternFinderCorrection import find_correction
+from model.WavePatternFinder.WavePatternFinderImpulse import find_impulse
 
 
 class WavePatternFinderBasic(object):
@@ -22,10 +21,10 @@ class WavePatternFinderBasic(object):
         self._wave_list.add_waves(minima_maxima, idx_start)
         self._wave_list = self._wave_list.wave_list
 
-        impulse_wave_list = find_impulsive_wave(self._wave_list, idx_start)
-        impulse_pattern = WavePattern(impulse_wave_list, config.Text.impulse)
+        impulse_pattern = find_impulse(self._wave_list, idx_start)
 
-        correction_wave_list = find_correction_wave(self._wave_list, idx_start + 5)
-        correction_pattern = WavePattern(correction_wave_list, 'zigzag')
+        idx_end = last_index(impulse_pattern)
+
+        correction_pattern = find_correction(self._wave_list, idx_end)
 
         return [impulse_pattern, correction_pattern]

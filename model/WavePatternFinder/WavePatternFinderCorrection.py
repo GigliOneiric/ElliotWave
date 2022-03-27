@@ -1,10 +1,14 @@
 import config.Text
+from model.WavePatternFinder.WavePattern import WavePattern
 
 
-def find_correction_wave(df, idx_start):
+def find_correction(df, idx_start):
+    name = config.Text.zigzag
     waves = find_zigzag(df, idx_start)
 
-    return waves
+    correction = WavePattern(waves, name)
+
+    return correction
 
 
 def find_zigzag(wave_list, idx_start):

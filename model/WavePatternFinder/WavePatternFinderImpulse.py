@@ -1,5 +1,14 @@
-from model.WaveFinder.WaveFinderBasic import WaveFinderBasic
-from helpers.PeakAnalyzer import minmax
+import config.Text
+from model.WavePatternFinder.WavePattern import WavePattern
+
+
+def find_impulse(df, idx_start):
+    name = config.Text.impulse
+    waves = find_impulsive_wave(df, idx_start)
+
+    impulse = WavePattern(waves, name)
+
+    return impulse
 
 
 def find_impulsive_wave(wave_list, idx_start):

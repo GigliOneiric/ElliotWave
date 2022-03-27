@@ -9,10 +9,11 @@ from model.WavePatternFinder.WavePatternFinderBasic import *
 df = read_csv()
 
 # Calculate Minima/Maxima
-minima_maxima = minmax(df, 2)
+window_size = 3
+minima_maxima = minmax(df, window_size)
 
 # Build
-wave_pattern = WavePatternFinderBasic(df, window_size=2).find_wave_pattern(idx_start=0)
+wave_pattern = WavePatternFinderBasic(df, window_size).find_wave_pattern(idx_start=0)
 
 impulse = Impulse(config.Text.impulse)
 zigzag = ZigZag(config.Text.zigzag)
