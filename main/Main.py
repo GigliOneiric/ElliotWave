@@ -9,7 +9,7 @@ from model.WavePatternFinder.WavePatternFinderBasic import *
 df = read_csv()
 
 # Calculate Minima/Maxima
-window_size = 1
+window_size = 2
 minima_maxima = minmax(df, window_size)
 
 # Build

@@ -24,15 +24,3 @@ def trend_mannkendall(extrema):
     result = mk.original_test(extrema.extrema)
 
     return result.trend
-
-
-def find_good_start(minima_maxima, start):
-    _start = start
-    trend = trend_mannkendall(minima_maxima)
-
-    if trend == config.Text.increasing and minima_maxima[config.Text.type][start] == config.Text.maxima:
-        _start = 1
-    elif trend == config.Text.decreasing and minima_maxima[config.Text.type][start] == config.Text.minima:
-        _start = 1
-
-    return _start
