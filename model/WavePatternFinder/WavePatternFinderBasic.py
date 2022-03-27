@@ -1,5 +1,5 @@
 from helpers.IndexTools import last_index
-from helpers.PeakAnalyzer import minmax
+from helpers.AnalyzerExtrema import minmax
 from model.WaveFinder.WaveFinderBasic import WaveFinderBasic
 from model.WavePatternFinder.WavePatternFinderCorrection import find_correction
 from model.WavePatternFinder.WavePatternFinderImpulse import find_impulse
