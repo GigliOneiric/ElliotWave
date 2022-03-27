@@ -21,10 +21,10 @@ class WaveFinderBasic(object):
         self._wave_list.append(wave)
 
     def add_waves(self, minima_maxima, idx_start):
-        minima_maxima_counter = len(minima_maxima.index)
+        minima_maxima_counter = len(minima_maxima.index) - 1
         start = idx_start + TrendAnalyzer.find_good_start(minima_maxima, 0)
 
-        for i in range(start, minima_maxima_counter-1):
+        for i in range(start - idx_start, minima_maxima_counter):
             wave = Wave(minima_maxima[config.Text.date][i], minima_maxima[config.Text.date][i+1],
                         minima_maxima[config.Text.extrema][i], minima_maxima[config.Text.extrema][i+1])
 

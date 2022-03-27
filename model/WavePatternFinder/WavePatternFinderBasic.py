@@ -25,6 +25,6 @@ class WavePatternFinderBasic(object):
 
         idx_end = last_index(impulse_pattern)
 
-        correction_pattern = find_correction(self._wave_list, idx_end)
+        correction_pattern = find_correction(self._wave_list, idx_end + idx_start)
 
         return [impulse_pattern, correction_pattern]
