@@ -6,10 +6,10 @@ import config.Text
 class AnalyzerHighLow(object):
 
     def __init__(self, df):
+        self.high_low = None
         self.df = df.close.values
         self.highs = pd.DataFrame(columns=[config.Text.date, config.Text.extrema, config.Text.type])
         self.lows = pd.DataFrame(columns=[config.Text.date, config.Text.extrema, config.Text.type])
-        self.high_low = pd.DataFrame(columns=[config.Text.date, config.Text.extrema, config.Text.type])
 
     def highlow(self):
         idx_start = 0
@@ -35,20 +35,21 @@ class AnalyzerHighLow(object):
                 pvt_high = act_high
 
             elif act_high < pvt_high and reached is True:
-                self.highs.loc[i] = [i, pvt_high, config.Text.maxima]
-                return self.find_high(high_low, i)
+                self.highs.loc[i - 1] = [i - 1, pvt_high, config.Text.maxima]
+                return self.find_high(high_low, i + 1)
 
             elif act_high < pvt_high:
                 pvt_high = high_low[i]
 
-            if (reached is True) and (i == (len(high_low) - 1)):
-                self.highs.loc[i] = [i, pvt_high, config.Text.maxima]
+            if (reached is True) and (i == (len(high_low))):
+                self.highs.loc[i - 1] = [i - 1, pvt_high, config.Text.maxima]
 
     def find_low(self, high_low, idx_start):
         pvt_low = high_low[idx_start]
         reached = False
 
         for i in range(idx_start + 1, len(high_low)):
+
             act_low = high_low[i]
 
             if act_low < pvt_low:
@@ -56,11 +57,11 @@ class AnalyzerHighLow(object):
                 pvt_low = act_low
 
             elif act_low > pvt_low and reached is True:
-                self.lows.loc[i] = [i, pvt_low, config.Text.minima]
+                self.lows.loc[i - 1] = [i - 1, pvt_low, config.Text.minima]
                 return self.find_low(high_low, i)
 
             elif act_low > pvt_low:
                 pvt_low = high_low[i]
 
             if (reached is True) and (i == (len(high_low) - 1)):
-                self.lows.loc[i] = [i, pvt_low, config.Text.minima]
+                self.lows.loc[i - 1] = [i - 1, pvt_low, config.Text.minima]

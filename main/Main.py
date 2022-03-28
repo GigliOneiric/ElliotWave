@@ -16,7 +16,6 @@ minima_maxima = minmax(df, window_size)
 # Build
 wave_pattern = WavePatternFinderBasic(df, window_size).find_wave_pattern(idx_start=1)
 high_low = AnalyzerHighLow(df).highlow()
-print(high_low)
 
 impulse = Impulse(config.Text.impulse)
 zigzag = ZigZag(config.Text.zigzag)
