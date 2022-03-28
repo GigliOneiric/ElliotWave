@@ -2,8 +2,6 @@ import numpy as np
 import pymannkendall as mk
 from scipy.stats import linregress
 
-import config.Text
-
 
 def trend_polynomial_regression(extrema, window):
     result = np.polyfit(extrema.index, extrema.extrema, window)

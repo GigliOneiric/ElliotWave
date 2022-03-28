@@ -10,12 +10,17 @@ from model.WavePatternFinder.WavePatternFinderBasic import *
 df = read_csv()
 
 # Calculate Minima/Maxima
+
+
+# Minima / Maxima based on local extrema
 window_size = 2
 minima_maxima = minmax(df, window_size)
 
-# Build
-wave_pattern = WavePatternFinderBasic(df, window_size).find_wave_pattern(idx_start=1)
+# High / Low based on next high / low
 high_low = AnalyzerHighLow(df).highlow()
+
+# Build
+wave_pattern = WavePatternFinderBasic(df, config.Text.high_low, window_size).find_wave_pattern(idx_start=6)
 
 impulse = Impulse(config.Text.impulse)
 zigzag = ZigZag(config.Text.zigzag)
@@ -27,5 +32,5 @@ for rule in rules_to_check:
 # Plot results
 plot_linechart(df)
 plot_extrema(high_low)
-# plot_pattern(wave_pattern)
+plot_pattern(wave_pattern)
 plot_show()
