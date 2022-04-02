@@ -36,7 +36,7 @@ class AnalyzerHighLow(object):
 
             elif act_high < pvt_high and reached is True:
                 self.highs.loc[i - 1] = [i - 1, pvt_high, config.Text.maxima]
-                return self.find_high(high_low, i + 1)
+                return self.find_high(high_low, i)
 
             elif act_high < pvt_high:
                 pvt_high = high_low[i]
